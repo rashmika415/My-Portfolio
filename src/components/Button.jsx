@@ -62,7 +62,7 @@ const Button = ({ text, className, id, href, download }) => {
     if (download && href) {
       const link = document.createElement('a');
       link.href = href;
-      link.download = 'Supun_Prabodha_CV.pdf';
+      link.download = 'Rashmika_Prabodhana_CV.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

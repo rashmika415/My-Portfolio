@@ -1,164 +1,93 @@
-import React, { useRef, useEffect } from "react";
-import { words } from "../constants";
-import Button from "../components/Button";
-import HeroExperience from "../components/HeroModels/HeroExperience";
+import React, { useRef, useState, useEffect } from "react";
+import { personalInfo, terminalRoles } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
 
 const Hero = () => {
   const sectionRef = useRef(null);
-  const buttonsRef = useRef([]);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useGSAP(() => {
-    // Only run animations when section is in viewport
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Text animations
-            gsap.fromTo(
-              ".hero-text h1",
-              { y: 50, opacity: 0, willChange: "transform, opacity" },
-              { 
-                y: 0, 
-                opacity: 1, 
-                stagger: 0.2, 
-                duration: 0.8, // Slightly reduced duration for smoother performance
-                ease: "power2.inOut" 
-              }
-            );
-            gsap.fromTo(
-              ".hero-description",
-              { y: 50, opacity: 0, willChange: "transform, opacity" },
-              { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.8, 
-                ease: "power2.inOut", 
-                delay: 0.3 // Slightly reduced delay
-              }
-            );
-
-            // Button animations
-            gsap.from(buttonsRef.current, {
-              y: 30,
-              opacity: 0,
-              duration: 0.6, // Slightly reduced duration
-              stagger: 0.15,
-              delay: 0.5, // Slightly reduced delay
-              ease: "back.out(1.7)",
-              willChange: "transform, opacity"
-            });
-
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "100px", // Trigger earlier for smoother start
-        threshold: 0.2 // Start when 20% of section is visible
-      }
+    gsap.fromTo(
+      ".hero-terminal",
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    // Fallback to ensure visibility if animations don't run
-    const ensureVisibility = () => {
-      gsap.set(".hero-text h1", { y: 0, opacity: 1 });
-      gsap.set(".hero-description", { y: 0, opacity: 1 });
-      gsap.set(buttonsRef.current, { y: 0, opacity: 1 });
-    };
-    const timeoutId = setTimeout(ensureVisibility, 500);
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-      clearTimeout(timeoutId);
-    };
+    gsap.fromTo(
+      ".hero-meta",
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, delay: 0.4, ease: "power2.out" }
+    );
   }, []);
 
-  // Function to add buttons to ref array
-  const addToButtonsRef = (el) => {
-    if (el && !buttonsRef.current.includes(el)) {
-      buttonsRef.current.push(el);
-    }
-  };
+  useEffect(() => {
+    const currentRole = terminalRoles[roleIndex];
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (displayText.length < currentRole.length) {
+            setDisplayText(currentRole.slice(0, displayText.length + 1));
+          } else {
+            setTimeout(() => setIsDeleting(true), 2000);
+          }
+        } else if (displayText.length > 0) {
+          setDisplayText(displayText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % terminalRoles.length);
+        }
+      },
+      isDeleting ? 50 : 80
+    );
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex]);
 
   return (
     <section id="hero" className="relative overflow-hidden" ref={sectionRef}>
-      <div className="max-w-8xl w-full md:px-10 px-5">
-        <link rel="preload" href="/images/bg.png" as="image" />
-        <div className="absolute top-0 left-0 z-10">
-          <img src="/images/bg.png" alt="background" loading="lazy" />
-        </div>
+      <div className="section-container">
         <div className="hero-layout">
-          <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
-            <div className="flex flex-col gap-7">
-              <div className="hero-text">
-                <h1 className="md:text-4xl text-2xl bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  Hi, I'm
-                </h1>
-                <h1 className="md:text-8xl text-7xl">Supun Prabodha</h1>
-                <h1>
-                  <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                    a{" "}
-                  </span>
-                  <span className="slide">
-                    <span className="wrapper">
-                      {words.map((word) => (
-                        <span
-                          key={word.text}
-                          className="flex items-center md:gap-3 gap-1 pb-2"
-                        >
-                          <div className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
-                            <img
-                              src={word.imgPath}
-                              alt={word.text}
-                              className="w-4/5 h-4/5 object-contain invert"
-                              loading="lazy"
-                            />
-                          </div>
-                          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-bold">
-                            {word.text}
-                          </span>
-                        </span>
-                      ))}
-                    </span>
-                  </span>
-                </h1>
+          <div className="hero-terminal w-full max-w-2xl mx-auto relative">
+            <div className="terminal-window terminal-scanline relative">
+              <div className="terminal-header">
+                <span className="terminal-dot bg-red-500/80" />
+                <span className="terminal-dot bg-yellow-500/80" />
+                <span className="terminal-dot bg-green-500/80" />
+                <span className="font-mono text-xs text-zinc-500 ml-2">rashmika@portfolio ~ </span>
               </div>
-              <p className="hero-description text-white-50 md:text-xl relative z-10 pointer-events-none md:max-w-lg">
-                Hi, I'm Supun Prabodha, a Full Stack Developer with a passion for turning ideas into reality. With over a year of experience in crafting scalable web and mobile applications, I excel in both front-end and back-end development. Skilled in technologies like MERN Stack, Java and modern frameworks, I create seamless user experiences and robust solutions that deliver results.
-              </p>
-              <div className="flex gap-4 relative md:z-auto z-20">
-                <div ref={addToButtonsRef}>
-                  <Button
-                    text="See my Work"
-                    id="work"
-                    className="md:w-80 md:h-16 w-60 h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-                  />
-                </div>
-                <div ref={addToButtonsRef}>
-                  <Button
-                    text="Download CV"
-                    href="/cv.pdf"
-                    download
-                    className="md:w-80 md:h-16 w-60 h-12 bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700"
-                  />
-                </div>
+              <div className="terminal-body">
+                <p className="text-zinc-500 mb-4">
+                  <span className="text-cyan">→</span> ~ whoami
+                </p>
+                <p className="text-white text-xl md:text-2xl font-semibold mb-6">
+                  {displayText}
+                  <span className="cursor-blink text-cyan">▌</span>
+                </p>
+                <p className="text-zinc-500 text-sm leading-relaxed">
+                  <span className="text-lime">//</span> {personalInfo.title}
+                </p>
+                <p className="text-zinc-600 text-xs mt-3">
+                  <span className="text-cyan">loc:</span> {personalInfo.location}
+                  <span className="mx-3">|</span>
+                  <span className="text-cyan">email:</span> {personalInfo.email}
+                </p>
               </div>
             </div>
-          </header>
-          <figure>
-            <div className="hero-3d-layout">
-              <HeroExperience />
-            </div>
-          </figure>
+          </div>
+
+          <div className="hero-meta flex flex-wrap justify-center gap-4 mt-10">
+            <a href="#work" className="btn-cyan-solid">
+              View Projects
+            </a>
+            <a href={personalInfo.cvPath} download={personalInfo.cvFileName} className="btn-outline">
+              Download CV
+            </a>
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              <i className="fab fa-github mr-2"></i> GitHub
+            </a>
+          </div>
         </div>
       </div>
       <AnimatedCounter />

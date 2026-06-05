@@ -1,26 +1,94 @@
+const personalInfo = {
+  name: "W G Rashmika Prabodhana",
+  shortName: "Rashmika Prabodhana",
+  title: "Software Engineer Undergraduate | Full-Stack Developer",
+  email: "rashmikaprabodana415@gmail.com",
+  phone: "+94772355140",
+  phoneDisplay: "+94 772 355 140",
+  location: "Tissamaharama, Sri Lanka",
+  github: "https://github.com/rashmika415",
+  linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+  summary:
+    "3rd-year Software Engineering undergraduate at SLIIT (GPA 3.45), experienced in full-stack MERN development, microservices architecture, and Android development with Kotlin. Built production-grade systems including a containerized healthcare platform deployed with Docker and Kubernetes. A fast learner who thrives in collaborative, agile environments and is passionate about crafting clean, scalable software solutions.",
+  cvPath: "/cv.pdf",
+  cvFileName: "Rashmika_Prabodhana_CV.pdf",
+};
+
 const navLinks = [
-  { name: "Work", link: "#work" },
+  { name: "Projects", link: "#work" },
   { name: "Experience", link: "#experience" },
   { name: "Skills", link: "#skills" },
-  { name: "Testimonials", link: "#testimonials" },
+  { name: "Contact", link: "#contact" },
+];
+
+const terminalRoles = [
+  "Full-Stack Developer",
+  "MERN Stack Engineer",
+  "Android Developer",
+  "Microservices Architect",
+];
+
+const techSkills = [
+  {
+    name: "REACT",
+    percentage: 90,
+    accent: "cyan",
+    description: "Component architecture, hooks, and state management for scalable SPAs.",
+    iconClass: "devicon-react-original colored",
+  },
+  {
+    name: "NODE.JS",
+    percentage: 88,
+    accent: "lime",
+    description: "REST APIs, Express middleware, JWT authentication, and microservices.",
+    iconClass: "devicon-nodejs-plain colored",
+  },
+  {
+    name: "MONGODB",
+    percentage: 85,
+    accent: "cyan",
+    description: "Schema design, aggregation pipelines, and MERN-stack data modeling.",
+    iconClass: "devicon-mongodb-plain colored",
+  },
+  {
+    name: "DOCKER",
+    percentage: 82,
+    accent: "lime",
+    description: "Containerization, Docker Compose, and Kubernetes deployment workflows.",
+    iconClass: "devicon-docker-plain colored",
+  },
+  {
+    name: "KOTLIN",
+    percentage: 80,
+    accent: "cyan",
+    description: "Native Android development, UI/UX, and local data persistence.",
+    iconClass: "devicon-kotlin-plain colored",
+  },
+  {
+    name: "PYTHON",
+    percentage: 78,
+    accent: "lime",
+    description: "Scripting, data structures, and AI/ML fundamentals.",
+    iconClass: "devicon-python-plain colored",
+  },
 ];
 
 const words = [
   { text: "Full-Stack Developer", imgPath: "/images/ideas.svg" },
-  { text: "Front-End Developer", imgPath: "/images/concepts.svg" },
-  { text: "Back-End Developer", imgPath: "/images/designs.svg" },
-  { text: "App Developer", imgPath: "/images/code.svg" },
-  { text: "UI/UX Designer", imgPath: "/images/ideas.svg" },
+  { text: "MERN Stack Developer", imgPath: "/images/concepts.svg" },
+  { text: "Android Developer", imgPath: "/images/designs.svg" },
+  { text: "Microservices Developer", imgPath: "/images/code.svg" },
+  { text: "Backend Developer", imgPath: "/images/ideas.svg" },
   { text: "Full-Stack Developer", imgPath: "/images/concepts.svg" },
-  { text: "App Developer", imgPath: "/images/designs.svg" },
-  { text: "UI/UX Designer", imgPath: "/images/code.svg" },
+  { text: "Android Developer", imgPath: "/images/designs.svg" },
+  { text: "Software Engineer", imgPath: "/images/code.svg" },
 ];
 
 const counterItems = [
-  { value: 2, suffix: "+", label: "Years of Experience" },
-  { value: 3, suffix: "+", label: "Satisfied Clients" },
-  { value: 13, suffix: "+", label: "Completed Projects" },
-  { value: 100, suffix: "%", label: "Client Retention Rate" },
+  { value: 4, suffix: "+", label: "Completed Projects" },
+  { value: 6, suffix: "+", label: "Certifications Earned" },
+  { value: 8, suffix: "+", label: "Programming Languages" },
+  { value: 3, suffix: "+", label: "Years in Software Engineering" },
 ];
 
 const logoIconsList = [
@@ -40,40 +108,37 @@ const logoIconsList = [
 const abilities = [
   {
     imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    title: "Problem Solving",
+    desc: "Analytical thinker who breaks down complex requirements into clean, scalable software solutions.",
   },
   {
     imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    title: "Teamwork & Communication",
+    desc: "Thrives in collaborative, agile environments with clear communication and reliable teamwork.",
   },
   {
     imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+    title: "Attention to Detail",
+    desc: "Delivers high-quality results on schedule with focus, adaptability, and strong time management.",
   },
 ];
 
 const techStackIcons = [
-  { name: "HTML", category: "frontend", iconClass: "devicon-html5-plain colored" },
-  { name: "CSS", category: "frontend", iconClass: "devicon-css3-plain colored" },
   { name: "JavaScript", category: "frontend", iconClass: "devicon-javascript-plain colored" },
   { name: "React.js", category: "frontend", iconClass: "devicon-react-original colored" },
   { name: "Tailwind CSS", category: "frontend", iconClass: "devicon-tailwindcss-plain colored" },
-  { name: "Three.js", category: "frontend", iconClass: "devicon-threejs-original colored" },
   { name: "Node.js", category: "backend", iconClass: "devicon-nodejs-plain colored" },
   { name: "Express.js", category: "backend", iconClass: "devicon-express-original colored" },
   { name: "PHP", category: "backend", iconClass: "devicon-php-plain colored" },
   { name: "MongoDB", category: "backend", iconClass: "devicon-mongodb-plain colored" },
   { name: "MySQL", category: "backend", iconClass: "devicon-mysql-plain colored" },
-  { name: "RESTful APIs", category: "backend", iconClass: "devicon-rest-plain colored" },
+  { name: "Docker", category: "backend", iconClass: "devicon-docker-plain colored" },
+  { name: "Kubernetes", category: "backend", iconClass: "devicon-kubernetes-plain colored" },
   { name: "Python", category: "languages", iconClass: "devicon-python-plain colored" },
   { name: "C", category: "languages", iconClass: "devicon-c-plain colored" },
   { name: "Java", category: "languages", iconClass: "devicon-java-plain colored" },
   { name: "C++", category: "languages", iconClass: "devicon-cplusplus-plain colored" },
   { name: "Kotlin", category: "languages", iconClass: "devicon-kotlin-plain colored" },
-  { name: "R", category: "languages", iconClass: "devicon-r-plain colored" },
   { name: "Android Studio", category: "tools", iconClass: "devicon-android-plain colored" },
   { name: "Eclipse", category: "tools", iconClass: "devicon-eclipse-plain colored" },
   { name: "VS Code", category: "tools", iconClass: "devicon-vscode-plain colored" },
@@ -83,112 +148,158 @@ const techStackIcons = [
   { name: "IntelliJ", category: "tools", iconClass: "devicon-intellij-plain colored" },
   { name: "Figma", category: "tools", iconClass: "devicon-figma-plain colored" },
   { name: "AWS", category: "tools", iconClass: "devicon-amazonwebservices-original colored" },
-  { name: "Firebase", category: "tools", iconClass: "devicon-firebase-plain colored" },
 ];
 
-const techStackImgs = []; // No local images, using CDN icons instead
+const techStackImgs = [];
 
 const expCards = [
   {
-    review: "Pursuing a degree with a focus on software engineering, actively engaging in various programming languages and technologies.",
+    review:
+      "Pursuing BSc (Hons) in Information Technology, specializing in Software Engineering, with hands-on experience in MERN, microservices, and Android development.",
     imgPath: "/images/sliit.png",
     logoPath: "/images/logos/sliit.png",
-    title: "SLIIT - Bachelor of Science - BSc, Information Technology, specialize in Software Engineering",
-    date: "Jul 2023 - Jul 2027",
+    title:
+      "SLIIT — BSc (Hons) Information Technology, Software Engineering",
+    date: "2023 - Present (Expected Graduation: June 2027)",
     highlights: [
-      "Sri Lanka Institute of Information Technology (SLIIT)",
-      "Grade: 2nd year 2nd semester",
-      "Skills: Python (Programming Language), Microsoft Office, Front-End Development, Problem Solving, PHP, SQL, English, Team Leadership, React.js, Presentations, Back-End Web Development, Information Technology, JavaScript, Kotlin, Machine Learning",
+      "Sri Lanka Institute of Information Technology (SLIIT), Malabe",
+      "GPA: 3.45 (first four semesters)",
+      "Skills: React, Node.js, MongoDB, Kotlin, Java, Python, Microservices, Docker, Kubernetes, JWT, REST APIs",
     ],
   },
   {
-    review: "Completed schooling with leadership roles and diverse extracurricular activities, building a strong foundation in problem-solving and teamwork.",
-    imgPath: "/images/richmond.png",
-    logoPath: "/images/logos/richmond.png",
-    title: "Richmond College - Galle",
-    date: "2008 - 2021",
+    review:
+      "Completed GCE Advanced Level in Physical Science stream with strong foundation in mathematics and analytical thinking.",
+    imgPath: "/images/school.png",
+    logoPath: "/images/logos/school.png",
+    title: "H/Debarawewa Central College — GCE Advanced Level",
+    date: "2022 / 2023",
     highlights: [
-      "Grade: 3 to 13",
-      "Activities and societies: President Scout of 2nd Galle Richmond Scout Troop (2020), Treasurer of 2nd Galle Richmond Scout Troop (2020), Member of 2nd Galle Richmond Rover Scouts Troop, Member of Prefect Body (2015-2018), Member of UN Club, Member of Swimming Club (2014 - 2016)",
-      "Skills: Problem Solving, Communication, Team Leadership, Creative Problem Solving",
+      "Physical Science Stream (Combined Mathematics, Physics, Chemistry)",
+      "Results: 3Cs",
+      "Tissamaharama, Sri Lanka",
+    ],
+  },
+  {
+    review:
+      "Completed GCE Ordinary Level with strong academic performance across multiple subjects.",
+    imgPath: "/images/school.png",
+    logoPath: "/images/logos/school.png",
+    title: "H/Debarawewa Janadhipathi K. Vidyalaya — GCE Ordinary Level",
+    date: "2018",
+    highlights: [
+      "Results: 7A, B and Cs",
+      "Including Information Technology, Commerce, and Music",
+      "Tissamaharama, Sri Lanka",
     ],
   },
 ];
 
 const expLogos = [
   { name: "sliit", imgPath: "/images/logos/sliit.png" },
-  { name: "richmond", imgPath: "/images/logos/richmond.png" },
+  { name: "school", imgPath: "/images/logos/school.png" },
+];
+
+const projects = [
+  {
+    title: "Nexus Health — Telemedicine & Patient Care System",
+    description:
+      "Healthcare platform built with microservices architecture (API Gateway, Patient, Doctor, Appointment, Payment, Video, AI Symptom, and Notification services). Features JWT auth, Stripe payments, video consultations, and AI-powered specialty recommendations. Containerized with Docker Compose and Kubernetes.",
+    image: "/images/project1.png",
+    alt: "Nexus Health",
+    github: "https://github.com/rashmika415",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    tech: "React, Node.js, Express, MongoDB, Docker, Kubernetes, JWT",
+    tags: ["React", "MongoDB", "Docker", "Kubernetes"],
+    featured: true,
+    caseLabel: "CASE_STUDY_01",
+  },
+  {
+    title: "Smart Water — SDG 17 Smart Water Tracking System",
+    description:
+      "Household water management system with usage tracking, personalized water-saving plans, carbon-footprint analytics, and admin notifications. Comprehensive test coverage using Jest, Supertest, and Artillery.",
+    image: "/images/project2.png",
+    alt: "Smart Water",
+    github: "https://github.com/rashmika415",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    tech: "React, Node.js, Express, MongoDB, Tailwind CSS, JWT",
+    tags: ["React", "Node.js", "MongoDB", "Jest"],
+  },
+  {
+    title: "Aqua Peak — Fish Farm Management System",
+    description:
+      "MERN-stack application to digitally transform fish farm operations. RESTful APIs for fish stock, feeding schedules, health monitoring, and farm analytics.",
+    image: "/images/project3.png",
+    alt: "Aqua Peak",
+    github: "https://github.com/rashmika415",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    tech: "React, Node.js, Express, MongoDB, JWT",
+    tags: ["MERN", "REST API", "JWT"],
+  },
+  {
+    title: "Daylog — Daily Habit Tracker",
+    description:
+      "Native Android app with daily habit tracking, emoji-based mood journal, and hydration reminders. Local data persistence using SharedPreferences with a user-friendly UI/UX.",
+    image: "/images/project4.png",
+    alt: "Daylog",
+    github: "https://github.com/rashmika415",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    tech: "Kotlin, XML, Android Studio, SharedPreferences",
+    tags: ["Kotlin", "Android", "XML"],
+  },
+];
+
+const certifications = [
+  "AI/ML Engineer — Stage 1 | SLIIT",
+  "AWS S3 Basics | Coursera / Amazon Web Services",
+  "Practical GitHub Actions | LinkedIn Learning",
+  "Docker Foundations Professional Certificate | LinkedIn Learning",
+  "Agile Project Management Professional Certificate | LinkedIn Learning",
+  "Certificate in English Language | Vocational Training Authority of Sri Lanka",
 ];
 
 const testimonials = [
   {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
-    review: "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+    name: "Tharindu Dharmasena",
+    mentions: "Lecturer, Department of Computing, Curtin University Colombo / SLIIT",
+    review:
+      "Tharindu Dharmasena is available as an academic reference. Email: tharindu.dharmasena@curtin.edu.au | tharindu.d@sliit.lk | Phone: +94 712 093 374",
     imgPath: "/images/client1.png",
   },
   {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
-    review: "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
-  },
-  {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
-    review: "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+    name: "Supun Wanasundara",
+    mentions: "Cloud Engineer, Finetech Consultancy (Pvt) Ltd",
+    review:
+      "Supun Wanasundara is available as a professional reference. Email: supun.w@fcpl.biz | Phone: +94 710 403 469",
     imgPath: "/images/client2.png",
-  },
-  {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
-    review: "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
-  },
-  {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
-    review: "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
-  },
-  {
-    name: "Albert Flores",
-    mentions: "@albertflores",
-    review: "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
   },
 ];
 
 const socialImgs = [
   {
-    name: "insta",
-    imgPath: "/images/insta.png",
-    url: "https://www.instagram.com/___supun_____/",
-  },
-  {
-    name: "fb",
-    imgPath: "/images/fb.png",
-    url: "https://www.facebook.com/supun.prabodha.liyanage/",
-  },
-  {
-    name: "x",
-    imgPath: "/images/x.png",
-    url: "https://www.threads.com/@___supun_____?xmt=AQF0absi7193GbiRxnjFtMwP--vjtnh-xGkZycITmOs70vI",
+    name: "github",
+    imgPath: "/images/github.png",
+    url: "https://github.com/rashmika415",
   },
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
-    url: "https://www.linkedin.com/in/supun-prabodha-liyanage/?originalSubdomain=lk",
+    url: "https://www.linkedin.com/in/rashmika-prabodana",
   },
 ];
 
 export {
+  personalInfo,
   words,
+  terminalRoles,
+  techSkills,
   abilities,
   logoIconsList,
   counterItems,
   expCards,
   expLogos,
+  projects,
+  certifications,
   testimonials,
   socialImgs,
   techStackIcons,
