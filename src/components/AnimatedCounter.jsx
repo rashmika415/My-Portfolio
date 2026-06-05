@@ -55,7 +55,7 @@ const AnimatedCounter = () => {
       <div className="stats-panel">
         <div className="stats-panel-header">
           <p className="stats-strip-label">// at_a_glance</p>
-          <p className="stats-panel-sub">Key metrics from my engineering journey</p>
+          <p className="stats-panel-sub">Key metrics from my undergraduate journey</p>
         </div>
 
         <div id="counter" ref={counterRef} className="stats-grid">

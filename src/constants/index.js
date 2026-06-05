@@ -5,9 +5,9 @@ const personalInfo = {
   email: "rashmikaprabodana415@gmail.com",
   phone: "+94772355140",
   phoneDisplay: "+94 772 355 140",
-  location: "Tissamaharama, Sri Lanka",
+  location: "Colombo, Sri Lanka",
   github: "https://github.com/rashmika415",
-  linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+  linkedin: "https://www.linkedin.com/in/rashmika-prabodhana-896486318/",
   summary:
     "3rd-year Software Engineering undergraduate at SLIIT (GPA 3.45), experienced in full-stack MERN development, microservices architecture, and Android development with Kotlin. Built production-grade systems including a containerized healthcare platform deployed with Docker and Kubernetes. A fast learner who thrives in collaborative, agile environments and is passionate about crafting clean, scalable software solutions.",
   cvPath: "/cv.pdf",
@@ -23,9 +23,8 @@ const navLinks = [
 
 const terminalRoles = [
   "Full-Stack Developer",
-  "MERN Stack Engineer",
-  "Android Developer",
-  "Microservices Architect",
+  "App Developer",
+  "UI/UX Designer",
 ];
 
 const techSkills = [
@@ -35,7 +34,7 @@ const techSkills = [
     iconClass: "devicon-react-original colored",
     description:
       "Building responsive, interactive web apps with modern component-based architecture and clean UI patterns.",
-    techniques: ["React.js", "JavaScript", "Tailwind CSS", "Hooks & State", "Responsive Design", "SPA Architecture"],
+    techniques: ["React.js", "JavaScript", "Tailwind CSS", "Hooks & State", "Responsive Design",],
   },
   {
     name: "Backend & APIs",
@@ -92,9 +91,9 @@ const words = [
 
 const counterItems = [
   { value: 4, suffix: "+", label: "Projects", hint: "Built & shipped", icon: "fas fa-folder-open", accent: "cyan" },
-  { value: 6, suffix: "+", label: "Certifications", hint: "Industry validated", icon: "fas fa-award", accent: "lime" },
+  { value: 8, suffix: "+", label: "Certifications", hint: "Industry validated", icon: "fas fa-award", accent: "lime" },
   { value: 8, suffix: "+", label: "Languages", hint: "Polyglot coder", icon: "fas fa-code", accent: "cyan" },
-  { value: 3, suffix: "+", label: "Years", hint: "Software engineering", icon: "fas fa-clock", accent: "lime" },
+  { value: 2, suffix: "+", label: "Years", hint: "Software engineering", icon: "fas fa-clock", accent: "lime" },
 ];
 
 const logoIconsList = [
@@ -217,9 +216,10 @@ const projects = [
     description:
       "Healthcare platform built with microservices architecture — API Gateway, Patient, Doctor, Appointment, Payment, Video, AI Symptom, and Notification services.",
     image: "/images/project1.png",
+    imagePosition: "center top",
     alt: "Nexus Health",
-    github: "https://github.com/rashmika415",
-    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    github: "https://github.com/rashmika415/healthcare-platform",
+    linkedin: "hhttps://www.linkedin.com/in/rashmika-prabodhana-896486318/",
     category: "Healthcare",
     tags: ["React", "MongoDB", "Docker", "Kubernetes"],
     highlights: [
@@ -232,13 +232,14 @@ const projects = [
   },
   {
     title: "Smart Water",
-    subtitle: "SDG 17 Smart Water Tracking System",
+    subtitle: " Smart Water Tracking System",
     description:
       "Household water management with usage tracking, personalized saving plans, carbon-footprint analytics, and admin notifications.",
     image: "/images/project2.png",
+    imagePosition: "center top",
     alt: "Smart Water",
-    github: "https://github.com/rashmika415",
-    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    github: "https://github.com/rashmika415/Smart-Water",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodhana-896486318/",
     category: "Sustainability",
     tags: ["React", "Node.js", "MongoDB", "Jest"],
     highlights: [
@@ -253,9 +254,10 @@ const projects = [
     description:
       "MERN-stack app digitizing fish farm operations with RESTful APIs for stock, feeding, health monitoring, and analytics.",
     image: "/images/project3.png",
+    imagePosition: "center top",
     alt: "Aqua Peak",
-    github: "https://github.com/rashmika415",
-    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    github: "https://github.com/isara5/Aqua-peak",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodhana-896486318/",
     category: "AgriTech",
     tags: ["MERN", "REST API", "JWT"],
     highlights: [
@@ -270,9 +272,10 @@ const projects = [
     description:
       "Native Android app for habit tracking, emoji-based mood journaling, and hydration reminders with local persistence.",
     image: "/images/project4.png",
+    imagePosition: "center top",
     alt: "Daylog",
     github: "https://github.com/rashmika415",
-    linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
+    linkedin: "https://www.linkedin.com/in/rashmika-prabodhana-896486318/",
     category: "Mobile",
     tags: ["Kotlin", "Android", "XML"],
     highlights: [
@@ -290,6 +293,7 @@ const certifications = [
   "Docker Foundations Professional Certificate | LinkedIn Learning",
   "Agile Project Management Professional Certificate | LinkedIn Learning",
   "Certificate in English Language | Vocational Training Authority of Sri Lanka",
+  
 ];
 
 const testimonials = [
@@ -318,7 +322,7 @@ const socialImgs = [
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
-    url: "https://www.linkedin.com/in/rashmika-prabodana",
+    url: "https://www.linkedin.com/in/rashmika-prabodhana-896486318/",
   },
 ];
 

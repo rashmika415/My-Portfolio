@@ -76,7 +76,16 @@ const ShowcaseSection = () => {
         {/* Featured project */}
         <article className="featured-project">
           <div className="featured-project-image">
-            <img src={featured.image} alt={featured.alt} loading="lazy" />
+            <img
+              src={featured.image}
+              alt={featured.alt}
+              loading="lazy"
+              decoding="async"
+              width={1200}
+              height={700}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: featured.imagePosition || "center" }}
+            />
             <div className="featured-project-image-overlay" />
             <span className="featured-badge">FEATURED</span>
             <span className="project-category-pill">{featured.category}</span>
@@ -145,7 +154,16 @@ const ShowcaseSection = () => {
             >
               <article className="project-card-v2">
                 <div className="project-card-image">
-                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: project.imagePosition || "center" }}
+                  />
                   <div className="project-card-image-overlay" />
                   <span className="project-card-index">
                     [{String(index + 2).padStart(2, "0")}]

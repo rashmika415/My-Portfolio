@@ -21,7 +21,7 @@ const Footer = () => {
               RASHMIKA<span className="text-cyan">.DEV</span>
             </a>
             <p className="footer-tagline">
-              Software Engineering Undergraduate · Full-Stack & Mobile Developer
+              Software Engineering Undergraduate · Full-Stack Developer
             </p>
             <p className="system-status">
               <span className="footer-status-dot" />
@@ -85,9 +85,7 @@ const Footer = () => {
           <p className="footer-copy">
             © {new Date().getFullYear()} {personalInfo.shortName}. All rights reserved.
           </p>
-          <p className="footer-built">
-            Built with React · Tailwind · GSAP
-          </p>
+          
         </div>
       </div>
     </footer>

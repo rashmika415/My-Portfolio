@@ -75,7 +75,7 @@ const Contact = () => {
           sub="// CONTACT"
           variant="cyan"
           align="left"
-          desc="Open to internships and collaborations. Send a message or reach out directly."
+          
         />
 
         <div className="contact-simple">

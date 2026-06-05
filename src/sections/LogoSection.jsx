@@ -9,7 +9,19 @@ const LogoSection = () => {
 
         <div className='marquee h-52'>
             <div className='marquee md:gap-12 gap-5'>
-                {logoIconsList}
+                {logoIconsList.map((logo, i) => (
+                  <div key={i} className='flex-center'>
+                    <img
+                      src={logo.imgPath}
+                      alt={`company-logo-${i}`}
+                      loading='lazy'
+                      decoding='async'
+                      width={160}
+                      height={60}
+                      className='object-contain'
+                    />
+                  </div>
+                ))}
             </div>
         </div>
       

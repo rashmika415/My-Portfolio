@@ -68,17 +68,12 @@ const Hero = () => {
               </p>
 
               <p className="hero-summary hero-copy mt-4">
-                Building scalable full-stack systems with MERN, microservices, and Android.
+                Hi, I'm Rashmika Prabodhana, a Full Stack Developer with a passion for turning ideas into reality. With over a year of experience in crafting scalable web and mobile applications, I excel in both front-end and back-end development. Skilled in technologies like MERN Stack, Java and modern frameworks, I create seamless user experiences and robust solutions that deliver results.
+
+
               </p>
 
-              <div className="hero-chips flex flex-wrap gap-2 mt-5">
-                <span className="hero-chip">
-                  <span className="hero-chip-dot" />
-                  Open to internships
-                </span>
-                <span className="hero-chip">GPA 3.45</span>
-                <span className="hero-chip">{personalInfo.location.split(",")[0]}</span>
-              </div>
+              
 
               <div className="hero-meta flex flex-wrap items-center gap-3 mt-8">
                 <a href="#work" className="btn-cyan-solid">
