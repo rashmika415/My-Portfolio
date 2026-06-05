@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Debarrawewa Central College emblem</title>
+  <desc id="desc">A stylized school crest with maroon background, circular emblem, and framed title plaque.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3d0004"/>
+      <stop offset="100%" stop-color="#0f0002"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fff3ea" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#fff3ea" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f1d8c7"/>
+      <stop offset="100%" stop-color="#b48d74"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="256" cy="178" r="180" fill="url(#glow)"/>
+
+  <g transform="translate(256 200)">
+    <circle r="166" fill="none" stroke="url(#ring)" stroke-width="5"/>
+    <circle r="142" fill="none" stroke="#f2dbc9" stroke-width="10" opacity="0.95"/>
+    <circle r="118" fill="none" stroke="#f2dbc9" stroke-width="3" opacity="0.9"/>
+
+    <g fill="none" stroke="#f2dbc9" stroke-width="4" opacity="0.9">
+      <path d="M-92 -108 C-68 -132 -30 -150 0 -152 C30 -150 68 -132 92 -108"/>
+      <path d="M-88 -98 C-62 -118 -28 -130 0 -132 C28 -130 62 -118 88 -98"/>
+    </g>
+
+    <g fill="#f2dbc9" opacity="0.95">
+      <path d="M0 -86 C-19 -60 -27 -31 -27 -4 C-27 24 -14 46 0 66 C14 46 27 24 27 -4 C27 -31 19 -60 0 -86Z"/>
+      <path d="M-4 -58 C-25 -28 -45 7 -63 45 C-43 39 -20 34 0 34 C20 34 43 39 63 45 C45 7 25 -28 4 -58Z" opacity="0.88"/>
+      <path d="M0 -10 C-9 10 -17 29 -23 49 C-9 46 0 44 0 44 C0 44 9 46 23 49 C17 29 9 10 0 -10Z" opacity="0.82"/>
+    </g>
+
+    <g stroke="#f2dbc9" stroke-width="2.8" fill="none" opacity="0.95">
+      <path d="M-52 -92 L-52 -30 C-52 -8 -37 9 -16 14"/>
+      <path d="M52 -92 L52 -30 C52 -8 37 9 16 14"/>
+      <path d="M-70 -72 L-70 -20 C-70 8 -49 29 -22 36"/>
+      <path d="M70 -72 L70 -20 C70 8 49 29 22 36"/>
+    </g>
+
+    <g fill="#f2dbc9" opacity="0.88">
+      <path d="M-110 -78 l18 -12 10 16 -18 12z"/>
+      <path d="M-82 -105 l16 -10 10 16 -16 10z"/>
+      <path d="M-42 -122 l14 -8 8 14 -14 8z"/>
+      <path d="M42 -122 l14 8 -8 14 -14 -8z"/>
+      <path d="M82 -105 l16 10 -10 16 -16 -10z"/>
+      <path d="M110 -78 l18 12 -10 16 -18 -12z"/>
+      <path d="M-126 -30 l14 -6 7 15 -14 6z"/>
+      <path d="M126 -30 l14 6 -7 15 -14 -6z"/>
+    </g>
+  </g>
+
+  <g transform="translate(128 392)">
+    <rect x="0" y="0" width="256" height="68" rx="2" fill="none" stroke="#f2dbc9" stroke-width="4"/>
+    <rect x="10" y="10" width="236" height="48" rx="1" fill="none" stroke="#f2dbc9" stroke-width="1.5" opacity="0.75"/>
+    <text x="128" y="30" text-anchor="middle" fill="#f2dbc9" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="2">
+      DEBARRAWEWA CENTRAL COLLEGE
+    </text>
+    <text x="128" y="50" text-anchor="middle" fill="#f2dbc9" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="4">
+      SCHOOL LOGO
+    </text>
+  </g>
+</svg>

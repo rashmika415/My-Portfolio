@@ -48,15 +48,14 @@ const FeatureCards = () => {
     <section ref={sectionRef} className="section-padding pt-0 section-glow">
       <div className="section-container">
         <TitleHeader
-          title="Soft Skills"
-          sub="// CORE_VALUES"
+          title="How I Work"
+          sub="// WORK_ETHIC"
           align="left"
-          desc="Beyond code — the mindset and collaboration habits that make engineering work actually ship."
+          desc="How I usually approach work: keep it clean, stay clear, and move forward step by step."
         />
 
         <div className="values-shell">
-          {/* Left — skill selector list */}
-          <div className="values-selector" role="tablist" aria-label="Soft skills">
+          <div className="values-selector" role="tablist" aria-label="Work principles">
             {abilities.map((item, index) => (
               <button
                 key={item.title}
@@ -67,23 +66,20 @@ const FeatureCards = () => {
                 onClick={() => selectSkill(index)}
               >
                 <span className="values-tab-num">{String(index + 1).padStart(2, "0")}</span>
-                <span className="values-tab-icon">
-                  <i className={item.icon} />
+                <span className={`values-tab-icon values-accent-${item.accent}`}>
+                  <i className={item.icon} aria-hidden="true" />
                 </span>
                 <span className="values-tab-text">
                   <span className="values-tab-title">{item.title}</span>
-                  <span className="values-tab-traits">
-                    {item.traits?.slice(0, 2).join(" · ")}
-                  </span>
+                  <span className="values-tab-traits">{item.tagline}</span>
                 </span>
                 <span className="values-tab-arrow" aria-hidden="true">→</span>
               </button>
             ))}
           </div>
 
-          {/* Right — detail display */}
           <div
-            className="values-display"
+            className={`values-display values-display-${current.accent}`}
             role="tabpanel"
             ref={displayRef}
             key={active}
@@ -91,11 +87,11 @@ const FeatureCards = () => {
             <div className="values-display-glow" aria-hidden="true" />
 
             <div className="values-display-header">
-              <div className="values-display-icon">
-                <i className={current.icon} />
+              <div className={`values-display-icon values-accent-${current.accent}`}>
+                <i className={current.icon} aria-hidden="true" />
               </div>
               <div>
-                <p className="values-display-label">// active_value</p>
+                <p className="values-display-label">// active_principle</p>
                 <h3 className="values-display-title">{current.title}</h3>
               </div>
             </div>
@@ -107,7 +103,7 @@ const FeatureCards = () => {
             </blockquote>
 
             <div className="values-trait-flow">
-              <p className="values-trait-label">manifests_as →</p>
+              <p className="values-trait-label">in_practice →</p>
               <div className="values-trait-pills">
                 {current.traits?.map((trait) => (
                   <span key={trait} className="values-trait-pill">
@@ -118,17 +114,15 @@ const FeatureCards = () => {
             </div>
 
             <div className="values-footer-bar">
-              <span className="values-footer-item">
-                <i className="fas fa-code-branch" /> Applied in team projects
-              </span>
-              <span className="values-footer-item">
-                <i className="fas fa-check" /> Agile & collaborative workflows
-              </span>
+              {current.footer?.map((item) => (
+                <span key={item.text} className="values-footer-item">
+                  <i className={item.icon} aria-hidden="true" /> {item.text}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Mobile-friendly trait strip */}
         <div className="values-mobile-strip" aria-hidden="true">
           {abilities.flatMap((a) => a.traits || []).map((trait) => (
             <span key={trait} className="values-mobile-tag">{trait}</span>

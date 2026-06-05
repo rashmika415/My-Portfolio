@@ -2,44 +2,43 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { expCards } from "../constants";
+import { expCards, expLogos } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const journeyYears = ["2018", "2022", "2023", "2027"];
 
 const Experience = () => {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
     gsap.fromTo(
-      ".journey-rail-fill",
-      { scaleX: 0 },
+      ".journey-roadmap",
+      { y: 28, opacity: 0 },
       {
-        scaleX: 1,
-        duration: 1.4,
-        ease: "power2.inOut",
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: ".journey-rail",
-          start: "top 80%",
+          trigger: sectionRef.current,
+          start: "top 78%",
         },
       }
     );
 
-    gsap.utils.toArray(".journey-node").forEach((node, index) => {
-      const isRight = index % 2 === 1;
+    gsap.utils.toArray(".journey-step").forEach((step, index) => {
       gsap.fromTo(
-        node,
-        { opacity: 0, x: isRight ? 40 : -40 },
+        step,
+        { opacity: 0, y: 18 },
         {
           opacity: 1,
-          x: 0,
-          duration: 0.75,
+          y: 0,
+          duration: 0.55,
+          delay: index * 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: node,
-            start: "top 88%",
+            trigger: step,
+            start: "top 92%",
           },
         }
       );
@@ -51,68 +50,94 @@ const Experience = () => {
       <div className="section-container">
         <TitleHeader
           title="Education & Journey"
-          sub="// EXPERIENCE_LOG"
+          sub="// ACADEMIC_PATH"
           align="left"
-          desc="A path from school foundations to software engineering — each step building toward building real systems."
+          desc="A compact roadmap view that keeps the milestones easy to scan without repeating the card-heavy layout used elsewhere."
         />
 
-        {/* Horizontal journey rail — desktop */}
-        <div className="journey-rail" aria-hidden="true">
-          <div className="journey-rail-track">
-            <div className="journey-rail-fill" />
+        <div className="journey-roadmap">
+          <div className="journey-roadmap-head">
+            <div>
+              
+             
+            </div>
+            <div className="journey-roadmap-meta">
+              <span>2 milestones</span>
+              <span>Software engineering focus</span>
+            </div>
           </div>
-          <div className="journey-rail-points">
-            {journeyYears.map((year) => (
-              <span key={year} className="journey-rail-year">
-                <span className="journey-rail-dot" />
-                {year}
-              </span>
-            ))}
-          </div>
-        </div>
 
-        {/* Zigzag timeline */}
-        <div className="journey-spine">
-          {expCards.map((card, index) => {
-            const side = index % 2 === 0 ? "left" : "right";
-            const isCurrent = index === 0;
+          <div className="journey-steps">
+            {expCards.map((card, index) => {
+              const logo = expLogos[index];
+              const isPrimary = index === 0;
+              const keySkills = card.skills?.slice(0, 6) || [];
+              const isLeft = index % 2 === 0;
 
-            return (
-              <article
-                key={card.title + card.org}
-                className={`journey-node journey-node-${side} ${isCurrent ? "journey-node-current" : ""}`}
-              >
-                <div className="journey-node-marker" aria-hidden="true">
-                  <span className="journey-node-dot" />
-                  <span className="journey-node-year">{card.date.replace(/—.*$/, "").split("/")[0].trim()}</span>
-                </div>
+              return (
+                <article
+                  key={card.title + card.org}
+                  className={`journey-step ${isLeft ? "journey-step-left" : "journey-step-right"}`}
+                >
+                  {isLeft ? <div className="journey-step-side" aria-hidden="true" /> : null}
 
-                <div className="journey-panel">
-                  <div className="journey-panel-header">
-                    <span className="journey-type">{card.type}</span>
-                    {isCurrent && <span className="journey-live">● current</span>}
-                    {card.badge && <span className="journey-badge">{card.badge}</span>}
+                  <div className="journey-step-marker" aria-hidden="true">
+                    <span className={`journey-step-dot ${isPrimary ? "journey-step-dot-active" : ""}`}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {index < expCards.length - 1 && <span className="journey-step-rail" />}
                   </div>
 
-                  <h3 className="journey-org">{card.org}</h3>
-                  <p className="journey-degree">{card.title}</p>
-                  <p className="journey-stream">{card.subtitle}</p>
+                  <div className="journey-step-body">
+                    <div className="journey-step-top">
+                      <div className="journey-step-brand">
+                        {logo && (
+                          <img
+                            src={logo.imgPath}
+                            alt={`${card.org} logo`}
+                            className="journey-step-logo"
+                          />
+                        )}
+                        <div>
+                          <p className="journey-step-kicker">{card.type}</p>
+                          <h4 className="journey-step-title">{card.title}</h4>
+                          <p className="journey-step-subtitle">{card.subtitle}</p>
+                        </div>
+                      </div>
 
-                  <div className="journey-meta">
-                    <span><i className="fas fa-calendar-alt" /> {card.date}</span>
-                    <span><i className="fas fa-map-marker-alt" /> {card.location}</span>
+                      {card.badge && <span className="journey-step-badge">{card.badge}</span>}
+                    </div>
+
+                    <div className="journey-step-meta">
+                      <span>{card.date}</span>
+                      <span>{card.location}</span>
+                    </div>
+
+                    <p className="journey-step-desc">{card.description}</p>
+
+                    {keySkills.length > 0 && (
+                      <div className="journey-step-skills" aria-label={`${card.title} skills`}>
+                        {keySkills.map((skill) => (
+                          <span key={skill} className="journey-step-skill">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="journey-step-foot">
+                      <span className="journey-step-org">@ {card.org}</span>
+                      <span className="journey-step-note">
+                        {isPrimary ? "Current path" : "Foundational stage"}
+                      </span>
+                    </div>
                   </div>
-                  {card.dateNote && <p className="journey-note">{card.dateNote}</p>}
 
-                  <ul className="journey-details">
-                    {card.highlights.map((h) => (
-                      <li key={h}>{h}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            );
-          })}
+                  {!isLeft ? <div className="journey-step-side" aria-hidden="true" /> : null}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

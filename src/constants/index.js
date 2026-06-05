@@ -112,22 +112,40 @@ const logoIconsList = [
 
 const abilities = [
   {
-    title: "Problem Solving",
-    desc: "Analytical thinker who breaks down complex requirements into clean, scalable software solutions.",
-    icon: "fas fa-puzzle-piece",
-    traits: ["Critical Thinking", "Debugging", "System Design"],
+    title: "Quality Focus",
+    tagline: "Careful work, simple code",
+    desc: "I try to keep my code clean, easy to read, and well organized.",
+    icon: "fas fa-trophy",
+    accent: "gold",
+    traits: ["Clean Code", "Testing", "Small Improvements", "Good Structure"],
+    footer: [
+      { icon: "fas fa-check-double", text: "Well-organized output" },
+      { icon: "fas fa-search", text: "Checks details early" },
+    ],
   },
   {
-    title: "Teamwork & Communication",
-    desc: "Thrives in collaborative, agile environments with clear communication and reliable teamwork.",
-    icon: "fas fa-users",
-    traits: ["Agile Teams", "Code Reviews", "Clear Communication"],
+    title: "Reliable Communication",
+    tagline: "Clear updates and teamwork",
+    desc: "I like to share progress clearly and work well with others.",
+    icon: "fas fa-comment-dots",
+    accent: "cyan",
+    traits: ["Status Updates", "Teamwork", "Feedback", "Documentation"],
+    footer: [
+      { icon: "fas fa-users", text: "Works well in teams" },
+      { icon: "fas fa-file-alt", text: "Keeps things clear" },
+    ],
   },
   {
-    title: "Attention to Detail",
-    desc: "Delivers high-quality results on schedule with focus, adaptability, and strong time management.",
-    icon: "fas fa-crosshairs",
-    traits: ["Quality Focus", "Time Management", "Reliability"],
+    title: "On-Time Delivery",
+    tagline: "Simple planning, steady progress",
+    desc: "I plan my work step by step and try to finish on time.",
+    icon: "fas fa-stopwatch",
+    accent: "purple",
+    traits: ["Planning", "Priorities", "Milestones", "Time Management"],
+    footer: [
+      { icon: "fas fa-tasks", text: "Step-by-step progress" },
+      { icon: "fas fa-bolt", text: "Steady delivery" },
+    ],
   },
 ];
 
@@ -164,49 +182,39 @@ const expCards = [
   {
     type: "University",
     org: "SLIIT",
-    title: "BSc (Hons) Information Technology",
-    subtitle: "Software Engineering Specialization",
+    institution: "Sri Lanka Institute of Information Technology",
+    title: "Bachelor of Science (BSc), Information Technology",
+    subtitle: "Specialize in Software Engineering",
     location: "Malabe, Sri Lanka",
-    date: "2023 — Present",
-    dateNote: "Expected graduation: June 2027",
-    badge: "GPA 3.45",
-    highlights: [
-      "MERN stack, microservices & Android development",
-      "React, Node.js, MongoDB, Docker, Kubernetes",
-      "JWT, REST APIs & production project experience",
+    date: "Jul 2023 — Jul 2027",
+    description:
+      "Pursuing a degree with a focus on software engineering, actively engaging in various programming languages and technologies.",
+    skills: [
+      "Python",
+      "JavaScript",
+      "Kotlin",
+      "PHP",
+      "SQL",
+      "React.js",
+      "Front-End Development",
+      "Back-End Web Development",
+      "Problem Solving",
     ],
   },
   {
-    type: "Advanced Level",
-    org: "H/Debarawewa Central College",
-    title: "GCE Advanced Level",
-    subtitle: "Physical Science Stream",
+    type: "School",
+    org: "Secondary Education",
+    title: "GCE O/L & A/L",
+    subtitle: "Physical Science Stream · Tissamaharama",
     location: "Tissamaharama, Sri Lanka",
-    date: "2022 / 2023",
-    badge: "3Cs",
-    highlights: [
-      "Combined Mathematics, Physics, Chemistry",
-      "Strong analytical & mathematical foundation",
-    ],
-  },
-  {
-    type: "Ordinary Level",
-    org: "H/Debarawewa Janadhipathi K. Vidyalaya",
-    title: "GCE Ordinary Level",
-    subtitle: "General Education",
-    location: "Tissamaharama, Sri Lanka",
-    date: "2018",
-    badge: "7A, B & Cs",
-    highlights: [
-      "Information Technology, Commerce & Music",
-      "Solid academic performance across subjects",
-    ],
+    date: "2018 — 2023",
+    badge: "O/L 7A · A/L 3C",
   },
 ];
 
 const expLogos = [
   { name: "sliit", imgPath: "/images/logos/sliit.png" },
-  { name: "school", imgPath: "/images/logos/school.png" },
+  { name: "school", imgPath: "/images/logos/school.svg" },
 ];
 
 const projects = [
