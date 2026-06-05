@@ -7,10 +7,14 @@ import ExperienceSection from './sections/ExperienceSection'
 import TechStack from './sections/TechStack'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import AnimatedBackground from './components/AnimatedBackground'
+import ScrollProgress from './components/ScrollProgress'
 
 const App = () => {
   return (
     <>
+      <AnimatedBackground />
+      <ScrollProgress />
       <NavBar />
       <Hero />
       <TechStack />

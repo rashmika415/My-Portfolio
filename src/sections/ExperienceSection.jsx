@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -6,21 +7,39 @@ import TitleHeader from "../components/TitleHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const journeyYears = ["2018", "2022", "2023", "2027"];
+
 const Experience = () => {
+  const sectionRef = useRef(null);
+
   useGSAP(() => {
-    gsap.utils.toArray(".exp-entry").forEach((entry, index) => {
+    gsap.fromTo(
+      ".journey-rail-fill",
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 1.4,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: ".journey-rail",
+          start: "top 80%",
+        },
+      }
+    );
+
+    gsap.utils.toArray(".journey-node").forEach((node, index) => {
+      const isRight = index % 2 === 1;
       gsap.fromTo(
-        entry,
-        { x: -30, opacity: 0 },
+        node,
+        { opacity: 0, x: isRight ? 40 : -40 },
         {
-          x: 0,
           opacity: 1,
-          duration: 0.7,
-          delay: index * 0.1,
-          ease: "power2.out",
+          x: 0,
+          duration: 0.75,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: entry,
-            start: "top 85%",
+            trigger: node,
+            start: "top 88%",
           },
         }
       );
@@ -28,46 +47,72 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" ref={sectionRef} className="section-padding section-alt-bg section-glow">
       <div className="section-container">
         <TitleHeader
           title="Education & Journey"
           sub="// EXPERIENCE_LOG"
           align="left"
+          desc="A path from school foundations to software engineering — each step building toward building real systems."
         />
-        <p className="font-mono text-sm text-zinc-500 mb-10 max-w-2xl">
-          Academic background and milestones that shaped my engineering path.
-        </p>
 
-        <div className="flex flex-col gap-6">
-          {expCards.map((card, index) => (
-            <div key={card.title} className="exp-entry exp-card">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div>
-                  <p className="font-mono text-xs text-cyan mb-2">
-                    [{String(index + 1).padStart(2, "0")}] EDU_ENTRY
-                  </p>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
-                    {card.title}
-                  </h3>
+        {/* Horizontal journey rail — desktop */}
+        <div className="journey-rail" aria-hidden="true">
+          <div className="journey-rail-track">
+            <div className="journey-rail-fill" />
+          </div>
+          <div className="journey-rail-points">
+            {journeyYears.map((year) => (
+              <span key={year} className="journey-rail-year">
+                <span className="journey-rail-dot" />
+                {year}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Zigzag timeline */}
+        <div className="journey-spine">
+          {expCards.map((card, index) => {
+            const side = index % 2 === 0 ? "left" : "right";
+            const isCurrent = index === 0;
+
+            return (
+              <article
+                key={card.title + card.org}
+                className={`journey-node journey-node-${side} ${isCurrent ? "journey-node-current" : ""}`}
+              >
+                <div className="journey-node-marker" aria-hidden="true">
+                  <span className="journey-node-dot" />
+                  <span className="journey-node-year">{card.date.replace(/—.*$/, "").split("/")[0].trim()}</span>
                 </div>
-                <span className="font-mono text-xs text-zinc-500 whitespace-nowrap">
-                  {card.date}
-                </span>
-              </div>
-              <ul className="space-y-2">
-                {card.highlights.map((highlight, i) => (
-                  <li
-                    key={i}
-                    className="font-mono text-sm text-zinc-400 flex items-start gap-2"
-                  >
-                    <span className="text-lime mt-0.5">›</span>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+                <div className="journey-panel">
+                  <div className="journey-panel-header">
+                    <span className="journey-type">{card.type}</span>
+                    {isCurrent && <span className="journey-live">● current</span>}
+                    {card.badge && <span className="journey-badge">{card.badge}</span>}
+                  </div>
+
+                  <h3 className="journey-org">{card.org}</h3>
+                  <p className="journey-degree">{card.title}</p>
+                  <p className="journey-stream">{card.subtitle}</p>
+
+                  <div className="journey-meta">
+                    <span><i className="fas fa-calendar-alt" /> {card.date}</span>
+                    <span><i className="fas fa-map-marker-alt" /> {card.location}</span>
+                  </div>
+                  {card.dateNote && <p className="journey-note">{card.dateNote}</p>}
+
+                  <ul className="journey-details">
+                    {card.highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

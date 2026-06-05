@@ -20,37 +20,62 @@ const AnimatedCounter = () => {
 
       gsap.to(numberElement, {
         innerText: item.value,
-        duration: 2,
+        duration: 1.8,
         ease: "power2.out",
         snap: { innerText: 1 },
         scrollTrigger: {
           trigger: counterRef.current,
-          start: "top 85%",
+          start: "top 92%",
         },
         onComplete: () => {
           numberElement.textContent = `${item.value}${item.suffix}`;
         },
       });
     });
+
+    gsap.fromTo(
+      ".stat-card-item",
+      { y: 24, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: counterRef.current,
+          start: "top 92%",
+        },
+      }
+    );
   }, []);
 
   return (
-    <div id="counter" ref={counterRef} className="section-container mt-12 mb-8">
-      <div className="grid-4-cols">
-        {counterItems.map((item, index) => (
-          <div
-            key={index}
-            ref={(el) => el && (countersRef.current[index] = el)}
-            className="stat-card"
-          >
-            <div className="counter-number font-mono text-3xl md:text-4xl font-bold text-cyan mb-2">
-              0{item.suffix}
+    <div className="stats-strip">
+      <div className="stats-panel">
+        <div className="stats-panel-header">
+          <p className="stats-strip-label">// at_a_glance</p>
+          <p className="stats-panel-sub">Key metrics from my engineering journey</p>
+        </div>
+
+        <div id="counter" ref={counterRef} className="stats-grid">
+          {counterItems.map((item, index) => (
+            <div
+              key={item.label}
+              ref={(el) => el && (countersRef.current[index] = el)}
+              className={`stat-card-item stat-card-v2 stat-card-${item.accent}`}
+            >
+              <div className="stat-card-icon">
+                <i className={item.icon} />
+              </div>
+              <div className="counter-number font-mono text-3xl md:text-4xl font-bold mb-1">
+                0{item.suffix}
+              </div>
+              <p className="stat-card-label">{item.label}</p>
+              <p className="stat-card-hint">{item.hint}</p>
             </div>
-            <div className="font-mono text-xs text-zinc-500 uppercase tracking-wider">
-              {item.label}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

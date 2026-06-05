@@ -3,84 +3,105 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import TitleHeader from "../components/TitleHeader";
-import { techSkills } from "../constants";
+import TechMarquee from "../components/TechMarquee";
+import SpotlightCard from "../components/SpotlightCard";
+import { techSkills, techStackIcons } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TechStack = () => {
   const sectionRef = useRef(null);
+  const totalTechniques = techSkills.reduce((sum, s) => sum + s.techniques.length, 0);
 
   useGSAP(() => {
     gsap.fromTo(
       ".skill-card",
-      { y: 30, opacity: 0 },
+      { y: 32, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
+        duration: 0.65,
+        stagger: 0.08,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 78%",
         },
       }
     );
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="section-padding">
+    <section id="skills" ref={sectionRef} className="section-padding section-glow section-alt-bg">
       <div className="section-container">
-        <TitleHeader
-          title="Technical DNA"
-          sub="// TECH_ANALYSIS"
-          align="left"
-        />
-        <p className="font-mono text-sm text-zinc-500 mb-10 max-w-2xl">
-          Core competencies mapped from production projects, coursework, and certifications.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {techSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className={`skill-card terminal-card p-6 ${
-                skill.accent === "cyan"
-                  ? "terminal-card-accent-cyan"
-                  : "terminal-card-accent-lime"
-              }`}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <i className={`${skill.iconClass} text-2xl`}></i>
-                  <h3 className="font-mono font-bold text-white tracking-wider">
-                    {skill.name}
-                  </h3>
-                </div>
-                <span
-                  className={`font-mono text-sm font-bold ${
-                    skill.accent === "cyan" ? "text-cyan" : "text-lime"
-                  }`}
-                >
-                  {skill.percentage}%
-                </span>
-              </div>
-
-              <div className="progress-bar mb-4">
-                <div
-                  className={`progress-fill ${
-                    skill.accent === "cyan" ? "progress-fill-cyan" : "progress-fill-lime"
-                  }`}
-                  style={{ width: `${skill.percentage}%` }}
-                />
-              </div>
-
-              <p className="font-mono text-xs text-zinc-500 leading-relaxed">
-                {skill.description}
-              </p>
+        <div className="tech-dna-header">
+          <TitleHeader
+            title="Technical DNA"
+            sub="// TECH_STACK"
+            align="left"
+            desc="Skills and techniques I use to design, build, and ship real-world software — from frontend to deployment."
+          />
+          <div className="tech-dna-summary">
+            <div className="tech-dna-stat">
+              <span className="tech-dna-stat-value">{techSkills.length}</span>
+              <span className="tech-dna-stat-label">Skill Domains</span>
             </div>
-          ))}
+            <div className="tech-dna-stat">
+              <span className="tech-dna-stat-value text-cyan">{totalTechniques}+</span>
+              <span className="tech-dna-stat-label">Techniques</span>
+            </div>
+            <div className="tech-dna-stat">
+              <span className="tech-dna-stat-value text-lime">{techStackIcons.length}</span>
+              <span className="tech-dna-stat-label">Technologies</span>
+            </div>
+          </div>
         </div>
+
+        <div className="skills-grid">
+          {techSkills.map((skill, index) => {
+            const isCyan = skill.accent === "cyan";
+
+            return (
+              <SpotlightCard
+                key={skill.name}
+                accent={skill.accent}
+                className={`skill-card skill-card-v2 ${
+                  isCyan ? "skill-card-cyan" : "skill-card-lime"
+                }`}
+              >
+                <div className="skill-card-top">
+                  <div className="skill-icon-wrap">
+                    <i className={`${skill.iconClass} text-2xl`} />
+                  </div>
+                  <span className="skill-index">
+                    [{String(index + 1).padStart(2, "0")}]
+                  </span>
+                </div>
+
+                <h3 className="skill-name">{skill.name}</h3>
+                <p className="skill-desc">{skill.description}</p>
+
+                <div className="skill-techniques">
+                  <p className="skill-techniques-label">// techniques_used</p>
+                  <div className="skill-technique-tags">
+                    {skill.techniques.map((tech) => (
+                      <span
+                        key={tech}
+                        className={`skill-technique-tag ${
+                          isCyan ? "skill-technique-tag-cyan" : "skill-technique-tag-lime"
+                        }`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </SpotlightCard>
+            );
+          })}
+        </div>
+
+        <TechMarquee />
       </div>
     </section>
   );

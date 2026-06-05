@@ -1,48 +1,93 @@
-import { socialImgs, personalInfo } from "../constants";
+import { socialImgs, personalInfo, navLinks } from "../constants";
 
 const Footer = () => {
   const getSocialIcon = (name) => {
     switch (name) {
       case "linkedin":
-        return <i className="fab fa-linkedin-in"></i>;
+        return <i className="fab fa-linkedin-in" />;
       case "github":
-        return <i className="fab fa-github"></i>;
+        return <i className="fab fa-github" />;
       default:
-        return <i className="fas fa-link"></i>;
+        return <i className="fas fa-link" />;
     }
   };
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <p className="system-status">
-          [SYSTEM_OK] rashmika.dev v1.0
-        </p>
-
-        <p>
-          © {new Date().getFullYear()} {personalInfo.shortName} — Software Engineering Portfolio
-        </p>
-
-        <div className="socials">
-          {socialImgs.map((img) => (
-            <a
-              className="icon"
-              target="_blank"
-              href={img.url}
-              key={img.url}
-              rel="noopener noreferrer"
-              aria-label={img.name}
-            >
-              {getSocialIcon(img.name)}
+    <footer className="footer-v2">
+      <div className="footer-container-v2">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <a href="#hero" className="footer-logo">
+              RASHMIKA<span className="text-cyan">.DEV</span>
             </a>
-          ))}
-          <a
-            href="#hero"
-            className="icon font-mono text-xs"
-            aria-label="Back to top"
-          >
-            ↑
-          </a>
+            <p className="footer-tagline">
+              Software Engineering Undergraduate · Full-Stack & Mobile Developer
+            </p>
+            <p className="system-status">
+              <span className="footer-status-dot" />
+              [SYSTEM_OK] All systems operational
+            </p>
+          </div>
+
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <p className="footer-nav-label">// navigate</p>
+            <ul>
+              {navLinks.map(({ name, link }) => (
+                <li key={link}>
+                  <a href={link}>{name}</a>
+                </li>
+              ))}
+              <li>
+                <a href="#hero">Home</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="footer-connect">
+            <p className="footer-nav-label">// connect</p>
+            <div className="footer-socials">
+              {socialImgs.map((img) => (
+                <a
+                  className="footer-social-btn"
+                  target="_blank"
+                  href={img.url}
+                  key={img.url}
+                  rel="noopener noreferrer"
+                  aria-label={img.name}
+                >
+                  {getSocialIcon(img.name)}
+                </a>
+              ))}
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="footer-social-btn"
+                aria-label="Email"
+              >
+                <i className="fas fa-envelope" />
+              </a>
+              <a
+                href={`https://wa.me/${personalInfo.phone.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-btn"
+                aria-label="WhatsApp"
+              >
+                <i className="fab fa-whatsapp" />
+              </a>
+            </div>
+            <a href="#hero" className="footer-back-top">
+              Back to top <span>↑</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p className="footer-copy">
+            © {new Date().getFullYear()} {personalInfo.shortName}. All rights reserved.
+          </p>
+          <p className="footer-built">
+            Built with React · Tailwind · GSAP
+          </p>
         </div>
       </div>
     </footer>

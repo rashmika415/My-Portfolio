@@ -30,46 +30,52 @@ const terminalRoles = [
 
 const techSkills = [
   {
-    name: "REACT",
-    percentage: 90,
+    name: "Frontend & UI",
     accent: "cyan",
-    description: "Component architecture, hooks, and state management for scalable SPAs.",
     iconClass: "devicon-react-original colored",
+    description:
+      "Building responsive, interactive web apps with modern component-based architecture and clean UI patterns.",
+    techniques: ["React.js", "JavaScript", "Tailwind CSS", "Hooks & State", "Responsive Design", "SPA Architecture"],
   },
   {
-    name: "NODE.JS",
-    percentage: 88,
+    name: "Backend & APIs",
     accent: "lime",
-    description: "REST APIs, Express middleware, JWT authentication, and microservices.",
     iconClass: "devicon-nodejs-plain colored",
+    description:
+      "Designing RESTful services, authentication flows, and scalable server-side logic for production systems.",
+    techniques: ["Node.js", "Express.js", "REST APIs", "JWT Auth", "Microservices", "PHP"],
   },
   {
-    name: "MONGODB",
-    percentage: 85,
+    name: "Databases",
     accent: "cyan",
-    description: "Schema design, aggregation pipelines, and MERN-stack data modeling.",
     iconClass: "devicon-mongodb-plain colored",
+    description:
+      "Modeling, querying, and managing data across NoSQL and relational databases in full-stack applications.",
+    techniques: ["MongoDB", "MySQL", "Schema Design", "Aggregation", "MERN Data Layer"],
   },
   {
-    name: "DOCKER",
-    percentage: 82,
+    name: "Mobile Development",
     accent: "lime",
-    description: "Containerization, Docker Compose, and Kubernetes deployment workflows.",
-    iconClass: "devicon-docker-plain colored",
-  },
-  {
-    name: "KOTLIN",
-    percentage: 80,
-    accent: "cyan",
-    description: "Native Android development, UI/UX, and local data persistence.",
     iconClass: "devicon-kotlin-plain colored",
+    description:
+      "Native Android apps with intuitive UI/UX, local persistence, and user-centric feature design.",
+    techniques: ["Kotlin", "Android Studio", "XML Layouts", "SharedPreferences", "Material UI"],
   },
   {
-    name: "PYTHON",
-    percentage: 78,
+    name: "DevOps & Cloud",
+    accent: "cyan",
+    iconClass: "devicon-docker-plain colored",
+    description:
+      "Containerizing applications and deploying services with modern DevOps workflows and cloud tooling.",
+    techniques: ["Docker", "Kubernetes", "Docker Compose", "GitHub Actions", "AWS S3"],
+  },
+  {
+    name: "Languages & Tooling",
     accent: "lime",
-    description: "Scripting, data structures, and AI/ML fundamentals.",
     iconClass: "devicon-python-plain colored",
+    description:
+      "Polyglot development across systems programming, scripting, and everyday engineering workflows.",
+    techniques: ["Python", "Java", "C / C++", "Git & GitHub", "Postman", "VS Code"],
   },
 ];
 
@@ -85,10 +91,10 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 4, suffix: "+", label: "Completed Projects" },
-  { value: 6, suffix: "+", label: "Certifications Earned" },
-  { value: 8, suffix: "+", label: "Programming Languages" },
-  { value: 3, suffix: "+", label: "Years in Software Engineering" },
+  { value: 4, suffix: "+", label: "Projects", hint: "Built & shipped", icon: "fas fa-folder-open", accent: "cyan" },
+  { value: 6, suffix: "+", label: "Certifications", hint: "Industry validated", icon: "fas fa-award", accent: "lime" },
+  { value: 8, suffix: "+", label: "Languages", hint: "Polyglot coder", icon: "fas fa-code", accent: "cyan" },
+  { value: 3, suffix: "+", label: "Years", hint: "Software engineering", icon: "fas fa-clock", accent: "lime" },
 ];
 
 const logoIconsList = [
@@ -107,19 +113,22 @@ const logoIconsList = [
 
 const abilities = [
   {
-    imgPath: "/images/seo.png",
     title: "Problem Solving",
     desc: "Analytical thinker who breaks down complex requirements into clean, scalable software solutions.",
+    icon: "fas fa-puzzle-piece",
+    traits: ["Critical Thinking", "Debugging", "System Design"],
   },
   {
-    imgPath: "/images/chat.png",
     title: "Teamwork & Communication",
     desc: "Thrives in collaborative, agile environments with clear communication and reliable teamwork.",
+    icon: "fas fa-users",
+    traits: ["Agile Teams", "Code Reviews", "Clear Communication"],
   },
   {
-    imgPath: "/images/time.png",
     title: "Attention to Detail",
     desc: "Delivers high-quality results on schedule with focus, adaptability, and strong time management.",
+    icon: "fas fa-crosshairs",
+    traits: ["Quality Focus", "Time Management", "Reliability"],
   },
 ];
 
@@ -154,43 +163,44 @@ const techStackImgs = [];
 
 const expCards = [
   {
-    review:
-      "Pursuing BSc (Hons) in Information Technology, specializing in Software Engineering, with hands-on experience in MERN, microservices, and Android development.",
-    imgPath: "/images/sliit.png",
-    logoPath: "/images/logos/sliit.png",
-    title:
-      "SLIIT — BSc (Hons) Information Technology, Software Engineering",
-    date: "2023 - Present (Expected Graduation: June 2027)",
+    type: "University",
+    org: "SLIIT",
+    title: "BSc (Hons) Information Technology",
+    subtitle: "Software Engineering Specialization",
+    location: "Malabe, Sri Lanka",
+    date: "2023 — Present",
+    dateNote: "Expected graduation: June 2027",
+    badge: "GPA 3.45",
     highlights: [
-      "Sri Lanka Institute of Information Technology (SLIIT), Malabe",
-      "GPA: 3.45 (first four semesters)",
-      "Skills: React, Node.js, MongoDB, Kotlin, Java, Python, Microservices, Docker, Kubernetes, JWT, REST APIs",
+      "MERN stack, microservices & Android development",
+      "React, Node.js, MongoDB, Docker, Kubernetes",
+      "JWT, REST APIs & production project experience",
     ],
   },
   {
-    review:
-      "Completed GCE Advanced Level in Physical Science stream with strong foundation in mathematics and analytical thinking.",
-    imgPath: "/images/school.png",
-    logoPath: "/images/logos/school.png",
-    title: "H/Debarawewa Central College — GCE Advanced Level",
+    type: "Advanced Level",
+    org: "H/Debarawewa Central College",
+    title: "GCE Advanced Level",
+    subtitle: "Physical Science Stream",
+    location: "Tissamaharama, Sri Lanka",
     date: "2022 / 2023",
+    badge: "3Cs",
     highlights: [
-      "Physical Science Stream (Combined Mathematics, Physics, Chemistry)",
-      "Results: 3Cs",
-      "Tissamaharama, Sri Lanka",
+      "Combined Mathematics, Physics, Chemistry",
+      "Strong analytical & mathematical foundation",
     ],
   },
   {
-    review:
-      "Completed GCE Ordinary Level with strong academic performance across multiple subjects.",
-    imgPath: "/images/school.png",
-    logoPath: "/images/logos/school.png",
-    title: "H/Debarawewa Janadhipathi K. Vidyalaya — GCE Ordinary Level",
+    type: "Ordinary Level",
+    org: "H/Debarawewa Janadhipathi K. Vidyalaya",
+    title: "GCE Ordinary Level",
+    subtitle: "General Education",
+    location: "Tissamaharama, Sri Lanka",
     date: "2018",
+    badge: "7A, B & Cs",
     highlights: [
-      "Results: 7A, B and Cs",
-      "Including Information Technology, Commerce, and Music",
-      "Tissamaharama, Sri Lanka",
+      "Information Technology, Commerce & Music",
+      "Solid academic performance across subjects",
     ],
   },
 ];
@@ -202,50 +212,74 @@ const expLogos = [
 
 const projects = [
   {
-    title: "Nexus Health — Telemedicine & Patient Care System",
+    title: "Nexus Health",
+    subtitle: "Telemedicine & Patient Care System",
     description:
-      "Healthcare platform built with microservices architecture (API Gateway, Patient, Doctor, Appointment, Payment, Video, AI Symptom, and Notification services). Features JWT auth, Stripe payments, video consultations, and AI-powered specialty recommendations. Containerized with Docker Compose and Kubernetes.",
+      "Healthcare platform built with microservices architecture — API Gateway, Patient, Doctor, Appointment, Payment, Video, AI Symptom, and Notification services.",
     image: "/images/project1.png",
     alt: "Nexus Health",
     github: "https://github.com/rashmika415",
     linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
-    tech: "React, Node.js, Express, MongoDB, Docker, Kubernetes, JWT",
+    category: "Healthcare",
     tags: ["React", "MongoDB", "Docker", "Kubernetes"],
+    highlights: [
+      "Microservices with API Gateway pattern",
+      "JWT auth, Stripe payments & video consults",
+      "Docker Compose & Kubernetes deployment",
+    ],
     featured: true,
     caseLabel: "CASE_STUDY_01",
   },
   {
-    title: "Smart Water — SDG 17 Smart Water Tracking System",
+    title: "Smart Water",
+    subtitle: "SDG 17 Smart Water Tracking System",
     description:
-      "Household water management system with usage tracking, personalized water-saving plans, carbon-footprint analytics, and admin notifications. Comprehensive test coverage using Jest, Supertest, and Artillery.",
+      "Household water management with usage tracking, personalized saving plans, carbon-footprint analytics, and admin notifications.",
     image: "/images/project2.png",
     alt: "Smart Water",
     github: "https://github.com/rashmika415",
     linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
-    tech: "React, Node.js, Express, MongoDB, Tailwind CSS, JWT",
+    category: "Sustainability",
     tags: ["React", "Node.js", "MongoDB", "Jest"],
+    highlights: [
+      "Real-time usage & carbon analytics",
+      "Jest, Supertest & Artillery test suite",
+      "Personalized water-saving plans",
+    ],
   },
   {
-    title: "Aqua Peak — Fish Farm Management System",
+    title: "Aqua Peak",
+    subtitle: "Fish Farm Management System",
     description:
-      "MERN-stack application to digitally transform fish farm operations. RESTful APIs for fish stock, feeding schedules, health monitoring, and farm analytics.",
+      "MERN-stack app digitizing fish farm operations with RESTful APIs for stock, feeding, health monitoring, and analytics.",
     image: "/images/project3.png",
     alt: "Aqua Peak",
     github: "https://github.com/rashmika415",
     linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
-    tech: "React, Node.js, Express, MongoDB, JWT",
+    category: "AgriTech",
     tags: ["MERN", "REST API", "JWT"],
+    highlights: [
+      "Fish stock & feeding schedule APIs",
+      "Health monitoring dashboards",
+      "Farm analytics & reporting",
+    ],
   },
   {
-    title: "Daylog — Daily Habit Tracker",
+    title: "Daylog",
+    subtitle: "Daily Habit Tracker",
     description:
-      "Native Android app with daily habit tracking, emoji-based mood journal, and hydration reminders. Local data persistence using SharedPreferences with a user-friendly UI/UX.",
+      "Native Android app for habit tracking, emoji-based mood journaling, and hydration reminders with local persistence.",
     image: "/images/project4.png",
     alt: "Daylog",
     github: "https://github.com/rashmika415",
     linkedin: "https://www.linkedin.com/in/rashmika-prabodana",
-    tech: "Kotlin, XML, Android Studio, SharedPreferences",
+    category: "Mobile",
     tags: ["Kotlin", "Android", "XML"],
+    highlights: [
+      "Daily habits & mood journal",
+      "Hydration reminder notifications",
+      "SharedPreferences local storage",
+    ],
   },
 ];
 
