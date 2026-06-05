@@ -541,9 +541,37 @@ body::after {
 }
 
 @keyframes float-orb {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -40px) scale(1.05); }
-  66% { transform: translate(-20px, 25px) scale(0.95); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1) rotate(0.01deg); }
+  25% { transform: translate3d(28px, -36px, 0) scale(1.04) rotate(0.02deg); }
+  50% { transform: translate3d(-18px, 22px, 0) scale(0.98) rotate(-0.02deg); }
+  75% { transform: translate3d(12px, -12px, 0) scale(1.01) rotate(0.01deg); }
+}
+
+/* rotating conic overlay to add subtle color movement */
+.bg-conic {
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg, rgba(0,229,255,0.06), rgba(163,230,53,0.05), rgba(99,102,241,0.05), rgba(0,229,255,0.06));
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: spin-slow 60s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+/* finer orb visuals */
+.bg-orb {
+  filter: blur(84px) saturate(110%);
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .bg-orb-cyan, .bg-orb-lime, .bg-orb-purple { width: 85vw; height: 85vw; max-width: none; max-height: none; }
+  .bg-conic { opacity: 0.45; }
 }
 
 /* ── Scroll progress ── */
