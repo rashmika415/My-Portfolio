@@ -37,12 +37,15 @@ const Button = ({ text, className, id, href, download }) => {
     if (arrow) {
       tl.to(arrow, {
         x: 10,
-        duration: 0.4,
-        ease: "back.out(2)"
+    const handleMouseEnter = () => tl.play();
+    const handleMouseLeave = () => tl.reverse();
+
+    button.addEventListener("mouseenter", handleMouseEnter);
+    button.addEventListener("mouseleave", handleMouseLeave);
       }, 0)
       .to(arrow, {
-        rotate: 45,
-        duration: 0.3
+      button.removeEventListener("mouseenter", handleMouseEnter);
+      button.removeEventListener("mouseleave", handleMouseLeave);
       }, 0.1);
     }
 
