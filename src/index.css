@@ -1010,6 +1010,56 @@ body::after {
   z-index: 0;
 }
 
+.hero-particles-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-particle-dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: particle-float linear infinite;
+  box-shadow: 0 0 6px currentColor;
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+  25% { transform: translate3d(8px, -14px, 0); opacity: 0.45; }
+  50% { transform: translate3d(-6px, -24px, 0); opacity: 0.3; }
+  75% { transform: translate3d(10px, -10px, 0); opacity: 0.4; }
+}
+
+.error-fallback {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--bg-primary);
+}
+
+.error-fallback-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+}
+
+.error-fallback h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.error-fallback p {
+  color: var(--text-muted);
+  max-width: 24rem;
+}
+
 .hero-content {
   position: relative;
   z-index: 10;
