@@ -9,6 +9,7 @@ const nameParts = personalInfo.shortName.split(" ");
 
 const Hero = () => {
   const sectionRef = useRef(null);
+  const timerRef = useRef(null);
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -24,13 +25,14 @@ const Hero = () => {
 
   useEffect(() => {
     const currentRole = terminalRoles[roleIndex];
-    const timeout = setTimeout(
+
+    timerRef.current = setTimeout(
       () => {
         if (!isDeleting) {
           if (displayText.length < currentRole.length) {
             setDisplayText(currentRole.slice(0, displayText.length + 1));
           } else {
-            setTimeout(() => setIsDeleting(true), 2000);
+            timerRef.current = setTimeout(() => setIsDeleting(true), 2000);
           }
         } else if (displayText.length > 0) {
           setDisplayText(displayText.slice(0, -1));
@@ -41,7 +43,8 @@ const Hero = () => {
       },
       isDeleting ? 50 : 80
     );
-    return () => clearTimeout(timeout);
+
+    return () => clearTimeout(timerRef.current);
   }, [displayText, isDeleting, roleIndex]);
 
   return (
